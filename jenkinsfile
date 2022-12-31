@@ -16,7 +16,7 @@ pipeline {
             steps {
                script {
                 echo "building APP..."
-                //gv.buildapp()
+                gv.buildapp()
                } 
            }
         }
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     echo "testing the APP..."
-                    //gv.testApp()
+                    gv.testApp()
                 }
             }
         }
