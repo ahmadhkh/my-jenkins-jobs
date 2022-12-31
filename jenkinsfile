@@ -15,7 +15,7 @@ pipeline {
                 }
             }
         }
-        stage ("build") {
+        stage ("buildAPP") {
             steps {
                script {
                 echo "building APP..."
@@ -30,6 +30,14 @@ pipeline {
                     gv.testApp()
                 }
             }
+        }
+        stage ("buildImage") {
+            steps {
+               script {
+                echo "building APP..."
+                gv.buildImage()
+               } 
+           }
         }
         stage ("deploy") {
             steps {
