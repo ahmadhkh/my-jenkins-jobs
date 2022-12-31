@@ -13,15 +13,17 @@ pipeline {
         }
         stage ('build') {
             steps {
-               script{
-                gv.buildapp()
+               script {
+                echo "building APP..."
+                //gv.buildapp()
                } 
            }
         }
         stage ('test') {
             steps {
                 script {
-                    gv.testApp()
+                    echo "testing the APP..."
+                    //gv.testApp()
                 }
             }
         }
