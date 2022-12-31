@@ -7,6 +7,10 @@ pipeline {
     tools {
         maven 'maven-3.8'
     }
+    parameters {
+        choice(name: 'VERSION', choices: ['1.0','1.2','1.3'], description: 'choose version')
+        booleanParam(name:'executetests', description: 'execute tests?')
+    }
     stages {
         stage ("init") {
             steps {
@@ -24,6 +28,11 @@ pipeline {
            }
         }
         stage ("test") {
+            when {
+                expression {
+                    params.executetests
+                }
+            }
             steps {
                 script {
                     echo "testing the APP..."
