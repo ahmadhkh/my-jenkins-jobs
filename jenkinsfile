@@ -4,14 +4,14 @@ def gv
 pipeline {
     agent any
     stages {
-        stage ('init') {
+        stage ("init") {
             steps {
                 script {
                     gv = load "script.groovy"
                 }
             }
         }
-        stage ('build') {
+        stage ("build") {
             steps {
                script {
                 echo "building APP..."
@@ -19,7 +19,7 @@ pipeline {
                } 
            }
         }
-        stage ('test') {
+        stage ("test") {
             steps {
                 script {
                     echo "testing the APP..."
@@ -27,7 +27,7 @@ pipeline {
                 }
             }
         }
-        stage ('deploy') {
+        stage ("deploy") {
             steps {
                 script {
                     ENV = input message: "Select the Environment:", ok: "Done", parameters: [choice(name: 'ONE', choices: ['dev', 'staging', 'prod'], description: 'hello ahmad')]
